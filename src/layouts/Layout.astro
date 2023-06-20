@@ -62,48 +62,69 @@ const { title } = Astro.props;
             <div class="slide"></div>
         </div> -->
         <slot />
+        <audio id="hoverSound" hidden preload="auto">
+            <source src="audio/hover.mp3" ></source>
+            <source src="audio/hover.ogg" ></source>
+            Your browser isn't invited for super fun audio time.
+        </audio>
+        <audio id="clickSound" hidden preload="auto">
+            <source src="audio/click.mp3" ></source>
+            <source src="audio/click.ogg" ></source>
+            Your browser isn't invited for super fun audio time.
+        </audio>
     </body>
-    <style is:global>
-        [astro-icon] {
-            color: white;
-            /* OR */
-            fill: white;
-        }
-        :root {
-            --accent: 124, 58, 237;
-            --accent-gradient: linear-gradient(
-                45deg,
-                rgb(var(--accent)),
-                #da62c4 30%,
-                white 60%
-            );
-        }
-
-        svg {
-            @apply fill-white;
-        }
-        html {
-            font-family: system-ui, sans-serif;
-            background-color: #6366f1;
-            background-image: url("/bg.gif");
-            @apply h-screen bg-center bg-cover bg-no-repeat;
-        }
-        code {
-            font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-                DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
-                monospace;
-        }
-
-        body {
-            @apply h-full w-full m-0 p-0;
-        }
-
-        p,
-        span,
-        a {
-            @apply text-white font-mono font-semibold text-xl;
-            text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-                1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
-        }
-    </style>
 </html>
+
+<script is:inline>
+    var thissound=document.getElementById("hoverSound");
+    thissound.volume = 0.2;
+    function PlaySound(soundobj) {
+    var thissound=document.getElementById(soundobj);
+    thissound.pause();
+    thissound.play();
+}
+</script>
+
+<style is:global>
+    [astro-icon] {
+        color: white;
+        /* OR */
+        fill: white;
+    }
+    :root {
+        --accent: 124, 58, 237;
+        --accent-gradient: linear-gradient(
+            45deg,
+            rgb(var(--accent)),
+            #da62c4 30%,
+            white 60%
+        );
+    }
+
+    svg {
+        @apply fill-white;
+    }
+    html {
+        font-family: system-ui, sans-serif;
+        background-color: #6366f1;
+        background-image: url("/bg.gif");
+        @apply h-screen bg-center bg-cover bg-no-repeat;
+    }
+    code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+            monospace;
+    }
+
+    body {
+        @apply h-full w-full m-0 p-0;
+    }
+
+    p,
+    span,
+    a {
+        @apply text-white font-mono font-semibold text-xl;
+        text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+            1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+    }
+</style>
