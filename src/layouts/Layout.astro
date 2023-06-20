@@ -1,0 +1,109 @@
+---
+import { SEO } from "astro-seo";
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <SEO
+            title={title}
+            description="A SE student portfolio made with Astro!"
+            openGraph={{
+                basic: {
+                    title: title,
+                    type: "website",
+                    image: "https://cdn.discordapp.com/attachments/880606499842445323/1120257489322115092/image.png",
+                    url: "https://fiezt.nyte.studio",
+                },
+            }}
+            twitter={{
+                creator: "@fieztazica",
+                card: "summary_large_image",
+            }}
+            extend={{
+                // extending the default link tags
+                link: [{ rel: "icon", href: "/favicon.svg" }],
+                // extending the default meta tags
+                meta: [
+                    {
+                        name: "twitter:image",
+                        content:
+                            "https://cdn.discordapp.com/attachments/880606499842445323/1120257489322115092/image.png",
+                    },
+                    {
+                        name: "twitter:title",
+                        content: title,
+                    },
+                    {
+                        name: "twitter:description",
+                        content: "A SE student portfolio made with Astro!",
+                    },
+                    {
+                        name: "theme-color",
+                        content: "#5C6BC0",
+                    },
+                ],
+            }}
+        />
+        <meta charset="UTF-8" />
+        <meta name="description" content="I'm a SE student!" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <!-- <div class="wrapper">
+            <div class="slide"></div>
+        </div> -->
+        <slot />
+    </body>
+    <style is:global>
+        [astro-icon] {
+            color: white;
+            /* OR */
+            fill: white;
+        }
+        :root {
+            --accent: 124, 58, 237;
+            --accent-gradient: linear-gradient(
+                45deg,
+                rgb(var(--accent)),
+                #da62c4 30%,
+                white 60%
+            );
+        }
+
+        svg {
+            @apply fill-white;
+        }
+        html {
+            font-family: system-ui, sans-serif;
+            background-color: #6366f1;
+            background-image: url("/bg.gif");
+            @apply h-screen bg-center bg-cover bg-no-repeat;
+        }
+        code {
+            font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+                DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+                monospace;
+        }
+
+        body {
+            @apply h-full w-full m-0 p-0;
+        }
+
+        p,
+        span,
+        a {
+            @apply text-white font-mono font-semibold text-xl;
+            text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+                1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+        }
+    </style>
+</html>

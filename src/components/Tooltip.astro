@@ -1,0 +1,17 @@
+---
+export interface Props {
+    label: string;
+    position?: string;
+    id?: string
+}
+
+const { label, id } = Astro.props;
+---
+
+<div id={id} class="group relative duration-300 md:p-6 p-4">
+    <slot />
+    <span
+        class="absolute hidden group-hover:flex mx-auto left-0 right-0 top-2 -translate-y-full w-fit px-2 py-1 bg-indigo-700 rounded-md text-center text-white text-sm items-center justify-center md:text-sm sm:text-xs"
+        >{label}</span
+    >
+</div>

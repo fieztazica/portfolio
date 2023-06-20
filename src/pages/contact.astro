@@ -1,0 +1,56 @@
+---
+import Tooltip from "../components/Tooltip.astro";
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon";
+
+const emails = ["tiendat.dev@outlook.com", "fiezt@outlook.com", "fiezt@pm.me"];
+---
+
+<Layout title="Connect with Fiezt">
+    <main class="h-full static w-full">
+        <div
+            class="absolute top-0 inset-x-0 flex justify-center items-center py-8"
+        >
+            <Tooltip label="Back">
+                <a href="/" title="Back">
+                    <Icon
+                        class="w-full h-20 fill-white stroke-black"
+                        name="ic:round-keyboard-backspace"
+                    />
+                </a>
+            </Tooltip>
+        </div>
+        <div
+            class="container mx-auto items-center justify-center flex flex-col space-y-2 h-full"
+        >
+            {
+                emails.map((v) => (
+                    <div class="flex flex-row items-center justify-center space-x-2">
+                        <a href={`mailto:${v}`} class="hover:underline">
+                            <p>{v}</p>
+                        </a>
+                        <div
+                            class="p-1 rounded-md bg-indigo-400 cursor-pointer hover:bg-indigo-500"
+                            title="Copy"
+                            onclick={`copy("${v}")`}
+                        >
+                            <Icon
+                                class="w-6 fill-white stroke-white stroke-2"
+                                name="ph:copy"
+                            />
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </main>
+</Layout>
+<script is:inline>
+    function copy(text) {
+        navigator.clipboard.writeText(text);
+
+        // Alert the copied text
+        alert("Copied");
+    }
+</script>
+<style></style>
