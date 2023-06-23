@@ -23,7 +23,7 @@ const socials: Social[] = [
     {
         name: "Discord",
         icon: "ic:baseline-discord",
-        href: "https://discord.gg/F7ZK6ssMUm"
+        href: "https://discord.com/users/445102575314927617"
     },
 ]
 
