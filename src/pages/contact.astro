@@ -1,18 +1,18 @@
 ---
-import Tooltip from "../components/Tooltip.astro";
-import Layout from "../layouts/Layout.astro";
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon'
+import Tooltip from '../components/Tooltip.astro'
+import Layout from '../layouts/Layout.astro'
 
-const emails = ["tiendat.dev@outlook.com", "fiezt@outlook.com", "fiezt@pm.me"];
+const emails = ['tiendat.dev@outlook.com', 'fiezt@outlook.com', 'fiezt@pm.me']
 ---
 
 <Layout title="Connect with Fiezt">
-    <main class="h-full static w-full">
+    <main class="h-full static w-screen-sm">
         <div
             class="absolute top-0 inset-x-0 flex justify-center items-center py-8"
         >
             <Tooltip label="Back">
-                <a href="/" title="Back" onmouseenter="PlaySound('hoverSound')" onclick="PlaySound('clickSound')">
+                <a href="/" title="Back">
                     <Icon
                         class="w-full h-20 fill-white stroke-black"
                         name="ic:round-keyboard-backspace"
@@ -26,21 +26,21 @@ const emails = ["tiendat.dev@outlook.com", "fiezt@outlook.com", "fiezt@pm.me"];
             {
                 emails.map((v, i) => (
                     <div class="flex flex-row items-center justify-center space-x-2">
-                        <a href={`mailto:${v}`} class="hover:underline" onmouseenter={"PlaySound('hoverSound')"}>
+                        <a href={`mailto:${v}`} class="hover:underline">
                             <p>{v}</p>
                         </a>
-                        <div
+                        <a
+                            href="javascript:void(0)"
                             id={`copyButton-${i}`}
-                            class="p-1 rounded-md bg-indigo-400 cursor-pointer hover:bg-indigo-500"
+                            class="p-1 rounded-md bg-indigo-400 hover:bg-indigo-500"
                             title="Copy"
-                            onclick={`copy("${v}", ${i}); PlaySound('clickSound')`}
-                            onmouseenter={"PlaySound('hoverSound')"}
+                            onclick={`copy("${v}", ${i})`}
                         >
                             <Icon
                                 class="w-6 fill-white stroke-white stroke-2"
                                 name="ph:copy"
                             />
-                        </div>
+                        </a>
                     </div>
                 ))
             }
@@ -49,15 +49,15 @@ const emails = ["tiendat.dev@outlook.com", "fiezt@outlook.com", "fiezt@pm.me"];
 </Layout>
 <script is:inline>
     function copy(text, id) {
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(text)
         let copyButton = document.getElementById(`copyButton-${id}`)
-        let copiedElement = "<span class=\"text-sm\">Copied!</span>"
-        if (copyButton.innerHTML.includes(copiedElement)) return;
+        let copiedElement = '<span class="text-sm">Copied!</span>'
+        if (copyButton.innerHTML.includes(copiedElement)) return
         let temp = copyButton.innerHTML
         copyButton.innerHTML = copiedElement
         setTimeout(() => {
             copyButton.innerHTML = temp
-        }, 3000);
+        }, 3000)
     }
 </script>
 <style></style>

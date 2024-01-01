@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon'
+import { navLinks } from '../data'
+
+const hover = 'hover:scale-105 hover:contrast-75 hover:text-indigo-600'
+
+const iconClassName =
+    'fill-white stroke-black text-white stroke-1 w-10 h-10 ' + hover
+const textClassName = 'text-white ' + hover
+---
+
+<header
+    class="flex flex-row w-full justify-between max-w-screen-sm container mx-auto px-4 flex-wrap"
+>
+    <nav class="flex space-x-4">
+        {
+            navLinks.map((v) => (
+                <a class={textClassName} href={v.href}>
+                    {v.name}
+                </a>
+            ))
+        }
+    </nav>
+    <button id="sound-toggle-btn">
+        <Icon
+            id="sound-toggle-icon-mute"
+            name={'mdi:volume-mute'}
+            class={iconClassName}
+            style="display: none"
+        />
+        <Icon
+            id="sound-toggle-icon-high"
+            name={'mdi:volume-high'}
+            class={iconClassName}
+        />
+    </button>
+</header>
+
+<script>
+    var sample = document.getElementById('loop') as HTMLAudioElement
+    const muteIcon = document.querySelector(
+        '#sound-toggle-icon-mute'
+    ) as SVGSVGElement
+    const highIcon = document.querySelector(
+        '#sound-toggle-icon-high'
+    ) as SVGSVGElement
+    const button = document.getElementById(
+        'sound-toggle-btn'
+    ) as HTMLButtonElement
+
+    function setOn() {
+        muteIcon.style.display = 'none'
+        highIcon.style.display = 'block'
+    }
+
+    function setOff() {
+        muteIcon.style.display = 'block'
+        highIcon.style.display = 'none'
+    }
+
+    if (sample.paused) setOn()
+    else setOff()
+
+    sample.addEventListener('play', () => {
+        setOff()
+    })
+
+    sample.addEventListener('pause', () => {
+        setOn()
+    })
+
+    button.addEventListener('click', () => {
+        if (sample.paused) sample.play()
+        else sample.pause()
+    })
+</script>

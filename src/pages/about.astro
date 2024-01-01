@@ -1,0 +1,54 @@
+---
+import Tooltip from '../components/Tooltip.astro'
+import Layout from '../layouts/Layout.astro'
+import { Icon } from 'astro-icon'
+
+const response = await fetch('https://api.github.com/users/fiezt1492')
+const data = await response.json()
+---
+
+<Layout title="About Fiezt">
+    <main class="h-full static w-screen-sm">
+        <div
+            class="absolute top-0 inset-x-0 flex justify-center items-center py-8"
+        >
+            <Tooltip label="Back">
+                <a href="/" title="Back">
+                    <Icon
+                        class="w-full h-20 fill-white stroke-black"
+                        name="ic:round-keyboard-backspace"
+                    />
+                </a>
+            </Tooltip>
+        </div>
+        <div
+            class="container mx-auto items-center justify-center flex flex-col space-y-2 h-full max-w-sm p-4"
+        >
+            <div class="w-full flex justify-center items-center mb-2">
+                <img
+                    class="aspect-square rounded-full ring-8"
+                    src={data.avatar_url}
+                />
+            </div>
+            <h1 class="mb-2">{data.name}</h1>
+            <p class="mb-2">
+                {data.bio}
+            </p>
+        </div>
+    </main>
+</Layout>
+
+<script is:inline>
+    function copy(text, id) {
+        navigator.clipboard.writeText(text)
+        let copyButton = document.getElementById(`copyButton-${id}`)
+        let copiedElement = '<span class="text-sm">Copied!</span>'
+        if (copyButton.innerHTML.includes(copiedElement)) return
+        let temp = copyButton.innerHTML
+        copyButton.innerHTML = copiedElement
+        setTimeout(() => {
+            copyButton.innerHTML = temp
+        }, 3000)
+    }
+</script>
+<style></style>

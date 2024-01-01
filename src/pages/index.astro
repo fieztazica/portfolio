@@ -1,66 +1,46 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import IconLink from "../components/IconLink.astro";
-import { socials } from "../data";
-import Tooltip from "../components/Tooltip.astro";
+import Header from '../components/Header.astro'
+import IconLink from '../components/IconLink.astro'
+import { socials } from '../data'
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="It's Fiezt here!">
-    <main class="h-full static w-full">
-        <audio id="loop" src="audio/8bit-theme-song.mp3" autoplay hidden preload="auto" loop
-        ></audio>
+    <main class="h-full static w-screen-sm">
         <div
-            class="container mx-auto h-full items-center justify-center flex flex-col"
+            class="absolute top-0 inset-x-0 py-4 flex flex-row justify-center items-center"
+        >
+            <Header />
+        </div>
+        <div
+            class="container mx-auto items-center justify-center flex flex-col h-full"
         >
             <div class="flex flex-row">
-                <Tooltip id="name-tooltip" label={`Turn music off`}>
-                    <img id="name" src="/bumping.gif" />
-                </Tooltip>
+                <img id="name" src="/bumping.gif" />
             </div>
         </div>
 
         <div
-            class="absolute bottom-0 inset-x-0 py-4 flex flex-row justify-center items-center flex-wrap"
+            class="absolute bottom-0 inset-x-0 py-4 flex flex-row justify-center items-center"
         >
-            {
-                socials.map((v) => (
-                    <IconLink href={v.href} title={v.name} src={v.icon} />
-                ))
-            }
-            <IconLink
-                href={"/contact"}
-                title={"Contact"}
-                src={"mdi:email"}
-                target="_self"
-            />
+            <div
+                class="flex flex-row max-w-screen-sm container mx-auto px-4 justify-between w-full flex-wrap"
+            >
+                {
+                    socials.map((v) => (
+                        <IconLink href={v.href} title={v.name} src={v.icon} />
+                    ))
+                }
+            </div>
         </div>
     </main>
+    <audio id="loop" src="audio/8bit-theme-song.mp3" hidden preload="auto" loop
+    ></audio>
 </Layout>
 
 <script>
-    var sample = document.getElementById("loop") as HTMLAudioElement;
-    var name = document.getElementById("name") as HTMLImageElement;
-    var nameTooltip = document.getElementById("name-tooltip") as HTMLDivElement;
-    var nameTooltipLabel = nameTooltip.querySelector("span") as HTMLSpanElement;
-
-    sample.addEventListener("canplay", () => {
-        sample.volume = 0.1;
-        sample.play();
-    });
-
-    sample.addEventListener("play", () => {
-        nameTooltipLabel.textContent = "Turn music off";
-    });
-
-    sample.addEventListener("pause", () => {
-        nameTooltipLabel.textContent = "Turn music on";
-    });
-
-    name.addEventListener("click", () => {
-        if (sample.paused) sample.play();
-        else sample.pause();
-    });
+    var sample = document.getElementById('loop') as HTMLAudioElement
+    if (sample) sample.volume = 0.1
 </script>
 
 <style>

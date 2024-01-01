@@ -1,10 +1,10 @@
 ---
-import { SEO } from "astro-seo";
+import { SEO } from 'astro-seo'
 export interface Props {
-    title: string;
+    title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -16,36 +16,36 @@ const { title } = Astro.props;
             openGraph={{
                 basic: {
                     title: title,
-                    type: "website",
-                    image: "https://cdn.discordapp.com/attachments/880606499842445323/1120257489322115092/image.png",
-                    url: "https://fiezt.nyte.studio",
+                    type: 'website',
+                    image: 'https://cdn.discordapp.com/attachments/880606499842445323/1120257489322115092/image.png',
+                    url: 'https://fiezt.nyte.studio',
                 },
             }}
             twitter={{
-                creator: "@fieztazica",
-                card: "summary_large_image",
+                creator: '@fieztazica',
+                card: 'summary_large_image',
             }}
             extend={{
                 // extending the default link tags
-                link: [{ rel: "icon", href: "/favicon.svg" }],
+                link: [{ rel: 'icon', href: '/favicon.svg' }],
                 // extending the default meta tags
                 meta: [
                     {
-                        name: "twitter:image",
+                        name: 'twitter:image',
                         content:
-                            "https://cdn.discordapp.com/attachments/880606499842445323/1120257489322115092/image.png",
+                            'https://cdn.discordapp.com/attachments/880606499842445323/1120257489322115092/image.png',
                     },
                     {
-                        name: "twitter:title",
+                        name: 'twitter:title',
                         content: title,
                     },
                     {
-                        name: "twitter:description",
-                        content: "A SE student portfolio made with Astro!",
+                        name: 'twitter:description',
+                        content: 'A SE student portfolio made with Astro!',
                     },
                     {
-                        name: "theme-color",
-                        content: "#5C6BC0",
+                        name: 'theme-color',
+                        content: '#5C6BC0',
                     },
                 ],
             }}
@@ -58,31 +58,37 @@ const { title } = Astro.props;
         <title>{title}</title>
     </head>
     <body>
-        <!-- <div class="wrapper">
-            <div class="slide"></div>
-        </div> -->
         <slot />
         <audio id="hoverSound" hidden preload="auto">
-            <source src="/audio/hover.mp3" ></source>
-            <source src="/audio/hover.ogg" ></source>
-            Your browser isn't invited for super fun audio time.
-        </audio>
-        <audio id="clickSound" hidden preload="auto">
-            <source src="/audio/click.mp3" ></source>
-            <source src="/audio/click.ogg" ></source>
-            Your browser isn't invited for super fun audio time.
-        </audio>
-    </body>
+            <source src="/audio/hover.mp3" /></audio
+        >
+        <source src="/audio/hover.ogg" /></body
+    >
+    <audio id="clickSound" hidden preload="auto">
+        <source src="/audio/click.mp3" /></audio
+    >
+    <source hidden src="/audio/click.ogg" />
 </html>
 
 <script is:inline>
-    var thissound=document.getElementById("hoverSound");
-    thissound.volume = 0.2;
+    var thissound = document.getElementById('hoverSound')
+    thissound.volume = 0.2
     function PlaySound(soundobj) {
-    var thissound=document.getElementById(soundobj);
-    thissound.pause();
-    thissound.play();
-}
+        var thissound = document.getElementById(soundobj)
+        thissound.pause()
+        thissound.play()
+    }
+
+    var links = document.querySelectorAll('a, button')
+    links.forEach((v) => {
+        v.addEventListener('mouseenter', () => {
+            PlaySound('hoverSound')
+        })
+
+        v.addEventListener('click', () => {
+            PlaySound('clickSound')
+        })
+    })
 </script>
 
 <style is:global>
@@ -107,24 +113,27 @@ const { title } = Astro.props;
     html {
         font-family: system-ui, sans-serif;
         background-color: #6366f1;
-        background-image: url("/bg.gif");
-        @apply h-screen bg-center bg-cover bg-no-repeat;
+        background-image: url('/bg.gif');
+        @apply h-dvh bg-center bg-cover bg-no-repeat font-mono text-white;
+        text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+            1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
     }
     code {
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
-            monospace;
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
     }
 
     body {
-        @apply h-full w-full m-0 p-0;
+        @apply h-dvh w-full p-0 m-0;
     }
 
     p,
     span,
     a {
-        @apply text-white font-mono font-semibold text-xl;
-        text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-            1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+        @apply font-semibold text-xl;
+    }
+
+    h1 {
+        @apply font-semibold text-4xl;
     }
 </style>

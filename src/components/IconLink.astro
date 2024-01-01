@@ -15,8 +15,6 @@ const { href, title, src, target } = Astro.props;
     href={href}
     target={target || "_blank"}
     class="group relative inline-block duration-300 lg:p-6 md:p-4 p-2 items-center text-center justify-center"
-    onmouseenter="PlaySound('hoverSound')"
-    onclick="PlaySound('clickSound')"
 >
     <Icon name={src} class="fill-white stroke-black text-white stroke-1 w-16 h-16 group-hover:scale-105 group-hover:contrast-[75%] group-hover:text-indigo-600"   />
     <span
@@ -24,7 +22,3 @@ const { href, title, src, target } = Astro.props;
         >{title || "Unknown"}</span
     >
 </a>
-
-<script is:inline>
-
-</script>
