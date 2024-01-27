@@ -2,13 +2,17 @@
 import Tooltip from '../components/Tooltip.astro'
 import Layout from '../layouts/Layout.astro'
 import { Icon } from 'astro-icon'
+import { about } from '../data'
 
 const response = await fetch('https://api.github.com/users/fiezt1492')
-const data = await response.json()
+let data = await response.json()
+if (!data.avatar_url || !data.name) {
+    data = { ...about }
+}
 ---
 
 <Layout title="About Fiezt">
-    <main class="h-full static w-screen-sm">
+    <div class="h-full static w-screen-sm">
         <div
             class="absolute top-0 inset-x-0 flex justify-center items-center py-8"
         >
@@ -26,16 +30,16 @@ const data = await response.json()
         >
             <div class="w-full flex justify-center items-center mb-2">
                 <img
-                    class="aspect-square rounded-full ring-8"
+                    class="aspect-square rounded-full ring-8 md:w-full w-48"
                     src={data.avatar_url}
                 />
             </div>
-            <h1 class="mb-2">{data.name}</h1>
-            <p class="mb-2">
+            <h1 class="mb-2 md:text-3xl text-xl">{data.name}</h1>
+            <p class="mb-2 md:text-lg text-sm">
                 {data.bio}
             </p>
         </div>
-    </main>
+    </div>
 </Layout>
 
 <script is:inline>
@@ -51,4 +55,3 @@ const data = await response.json()
         }, 3000)
     }
 </script>
-<style></style>

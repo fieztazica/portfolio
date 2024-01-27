@@ -41,4 +41,10 @@ const navLinks: Href[] = [
     },
 ]
 
-export { socials, navLinks }
+const about = {
+    avatar_url: '/profile/me.jpg',
+    name: 'Dat Hoang',
+    bio: 'Student - Software Engineer at HUTECH.',
+}
+
+export { socials, navLinks, about }

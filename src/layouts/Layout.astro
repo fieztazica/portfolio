@@ -1,5 +1,8 @@
 ---
+import '../styles/global.css'
 import { SEO } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
+import Header from '../components/Header.astro'
 export interface Props {
     title: string
 }
@@ -7,8 +10,8 @@ export interface Props {
 const { title } = Astro.props
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" transition:animate="none">
     <head>
         <SEO
             title={title}
@@ -17,7 +20,7 @@ const { title } = Astro.props
                 basic: {
                     title: title,
                     type: 'website',
-                    image: 'https://cdn.discordapp.com/attachments/880606499842445323/1120257489322115092/image.png',
+                    image: 'https://res.cloudinary.com/dpck8wjje/image/upload/f_auto,q_auto/ufujc3wushcksuawvaga',
                     url: 'https://fiezt.nyte.studio',
                 },
             }}
@@ -33,7 +36,7 @@ const { title } = Astro.props
                     {
                         name: 'twitter:image',
                         content:
-                            'https://cdn.discordapp.com/attachments/880606499842445323/1120257489322115092/image.png',
+                            'https://res.cloudinary.com/dpck8wjje/image/upload/f_auto,q_auto/ufujc3wushcksuawvaga',
                     },
                     {
                         name: 'twitter:title',
@@ -56,84 +59,39 @@ const { title } = Astro.props
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <ViewTransitions />
     </head>
     <body>
-        <slot />
-        <audio id="hoverSound" hidden preload="auto">
+        <main transition:animate="slide">
+            <slot />
+        </main>
+        <audio id="hoverSound" hidden preload="auto" transition:persist>
             <source src="/audio/hover.mp3" /></audio
         >
-        <source src="/audio/hover.ogg" /></body
+        <source src="/audio/hover.ogg" transition:persist />
+        <audio id="clickSound" hidden preload="auto" transition:persist>
+            <source src="/audio/click.mp3" /></audio
+        >
+        <source hidden src="/audio/click.ogg" /></body
     >
-    <audio id="clickSound" hidden preload="auto">
-        <source src="/audio/click.mp3" /></audio
-    >
-    <source hidden src="/audio/click.ogg" />
+    <script is:inline>
+        var thissound = document.getElementById('hoverSound')
+        thissound.volume = 0.2
+        function PlaySound(soundobj) {
+            var thissound = document.getElementById(soundobj)
+            thissound.pause()
+            thissound.play()
+        }
+
+        var links = document.querySelectorAll('a, button')
+        links.forEach((v) => {
+            v.addEventListener('mouseenter', () => {
+                PlaySound('hoverSound')
+            })
+
+            v.addEventListener('click', () => {
+                PlaySound('clickSound')
+            })
+        })
+    </script>
 </html>
-
-<script is:inline>
-    var thissound = document.getElementById('hoverSound')
-    thissound.volume = 0.2
-    function PlaySound(soundobj) {
-        var thissound = document.getElementById(soundobj)
-        thissound.pause()
-        thissound.play()
-    }
-
-    var links = document.querySelectorAll('a, button')
-    links.forEach((v) => {
-        v.addEventListener('mouseenter', () => {
-            PlaySound('hoverSound')
-        })
-
-        v.addEventListener('click', () => {
-            PlaySound('clickSound')
-        })
-    })
-</script>
-
-<style is:global>
-    [astro-icon] {
-        color: white;
-        /* OR */
-        fill: white;
-    }
-    :root {
-        --accent: 124, 58, 237;
-        --accent-gradient: linear-gradient(
-            45deg,
-            rgb(var(--accent)),
-            #da62c4 30%,
-            white 60%
-        );
-    }
-
-    svg {
-        @apply fill-white;
-    }
-    html {
-        font-family: system-ui, sans-serif;
-        background-color: #6366f1;
-        background-image: url('/bg.gif');
-        @apply h-dvh bg-center bg-cover bg-no-repeat font-mono text-white;
-        text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-            1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
-    }
-    code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-    }
-
-    body {
-        @apply h-dvh w-full p-0 m-0;
-    }
-
-    p,
-    span,
-    a {
-        @apply font-semibold text-xl;
-    }
-
-    h1 {
-        @apply font-semibold text-4xl;
-    }
-</style>
