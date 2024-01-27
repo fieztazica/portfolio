@@ -47,4 +47,13 @@ const about = {
     bio: 'Student - Software Engineer at HUTECH.',
 }
 
-export { socials, navLinks, about }
+const emails = [
+    'tiendat.dev@outlook.com',
+    'hoangtiendat.dev@gmail.com',
+    'fiezt@outlook.com',
+    'fiezt@nyte.tk',
+    'fiezt@skiff.com',
+    'tiendat@skiff.com',
+]
+
+export { socials, navLinks, about, emails }
