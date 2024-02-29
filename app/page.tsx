@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import avatarImg from './avatar.jpg'
+import avatarImg from 'app/avatar.jpg'
 import Link from 'next/link'
 
 type ConnectLinkType = {
@@ -8,11 +8,10 @@ type ConnectLinkType = {
 }
 
 const connectLinks: ConnectLinkType[] = [
-    { title: 'github', url: 'https://github.com/fiezt1492' },
-    { title: 'facebook', url: 'https://www.facebook.com/fieztazica' },
-    { title: 'instagram', url: 'https://www.instagram.com/_fiezt' },
-    { title: 'linkedin', url: 'https://www.linkedin.com/in/fiezt' },
-    { title: 'email', url: 'mailto:fiezt@outlook.com' },
+    { title: 'github', url: '/github' },
+    { title: 'facebook', url: '/facebook' },
+    { title: 'instagram', url: '/instagram' },
+    { title: 'linkedin', url: '/linkedin' },
 ]
 
 function ArrowIcon() {
@@ -98,7 +97,7 @@ export default function Page() {
                         height={256}
                         width={256}
                         alt="fiezt avatar"
-                        aria-label='fiezt avatar'
+                        aria-label="fiezt avatar"
                         className="border-2 border-neutral-200 dark:border-neutral-700 min-w-32 min-h-32 rounded-full"
                         priority
                     />
@@ -141,7 +140,7 @@ export default function Page() {
                     alt="Fiezt bumping gif"
                     width={1280}
                     height={720}
-                    sizes='33vw'
+                    sizes="33vw"
                     className="max-w-64 w-64 h-full"
                 />
             </div>
@@ -151,6 +150,9 @@ export default function Page() {
                         <ConnectLink url={c.url} title={c.title} />
                     </li>
                 ))}
+                <li>
+                    <ConnectLink url={"mailto:fiezt@outlook.com"} title={"email"} />
+                </li>
             </ul>
         </section>
     )
