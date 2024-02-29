@@ -11,10 +11,10 @@ export default function Form() {
     <form
       className="relative max-w-[500px]"
       ref={formRef}
-      action={async (formData) => {
-        await saveGuestbookEntry(formData);
-        formRef.current?.reset();
-      }}
+    //   action={async (formData) => {
+    //     await saveGuestbookEntry(formData);
+    //     formRef.current?.reset();
+    //   }}
     >
       <input
         aria-label="Your message"

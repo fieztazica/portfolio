@@ -15,64 +15,20 @@ export default function UsesPage() {
       <div className="prose prose-neutral dark:prose-invert">
         <h3 id="computer-office">Computer / Office</h3>
         <ul>
-          <li>16&quot; Macbook Pro (2020)</li>
-          <li>31.5&quot; LG UltraFine 32UN880</li>
-          <li>Logitech MX Master 3 Mouse</li>
-          <li>Apple Magic Keyboard</li>
-          <li>Focal XS 2.1 w/ Subwoofer</li>
-          <li>Autonomous SmartDesk 2</li>
-          <li>Autonomous ErgoChair 2</li>
+          <li>Potato Windows 10 15.6&quot; Lenovo Ideapad S145-15IKB i3-8130U, MX110 2GB VRAM (12GB RAM total)</li>
+          <li>DareU EM901X RGB Superlight Wireless (Black)</li>
+          <li>Royal Kludge RK G68 Single White Led (Black)</li>
+          <li>Samsung IA500</li>
+          <li>Bluetooth True Wireless Xiaomi Redmi Buds 4 Active</li>
+          <li>homemade wooden desk</li>
+          <li>hanoi plastic chairs</li>
         </ul>
         <h3 id="coding">Coding</h3>
         <ul>
           <li>
-            Editor: VSCode (
-            <a href="https://gist.github.com/leerob/e7883ab35d900b8cbb684ac77e7c4703">
-              Settings / Extensions
-            </a>
-            )
+            Editor: VSCode
           </li>
-          <li>Theme: One Dark Pro</li>
-          <li>Terminal: Hyper / zsh</li>
-        </ul>
-        <h3 id="audio-video">Audio / Video</h3>
-        <ul>
-          <li>Sony A7III (28-50mm, 35mm f1.8)</li>
-          <li>Shure SM7B + Elgato Wave XLR + Boom</li>
-          <li>Elgato Camlink</li>
-          <li>Logitech C920</li>
-          <li>Elgato Key Light (x2)</li>
-          <li>Elgato Master Mount</li>
-          <li>Aputure Mark 2 120D II</li>
-          <li>Aputure Light Dome II</li>
-        </ul>
-        <h3 id="software">Software</h3>
-        <ul>
-          <li>1Password</li>
-          <li>Spotify</li>
-          <li>CleanShot X</li>
-          <li>RetroClip</li>
-          <li>Grammarly</li>
-          <li>Texts</li>
-          <li>Raycast</li>
-          <li>Screenflow</li>
-        </ul>
-        <h3 id="music">Music</h3>
-        <ul>
-          <li>Yamaha P-105 Piano</li>
-          <li>Roland TD-20 V-Drums</li>
-          <li>Roland AC-60</li>
-          <li>Shure SM58</li>
-          <li>Martin Acoustic Guitar (X-Series)</li>
-        </ul>
-        <h3 id="other-tech">Other Tech</h3>
-        <ul>
-          <li>Apple Airpods Pro</li>
-          <li>Apple Watch</li>
-          <li>Apple iPhone</li>
-          <li>Lacie USB-C External HDD</li>
-          <li>Kindle</li>
-          <li>Tesla Model 3</li>
+          <li>Theme: Dracula</li>
         </ul>
       </div>
     </section>

@@ -28,7 +28,7 @@ async function GuestbookForm() {
 
   return session?.user ? (
     <>
-      <Form />
+      {/* <Form /> */}
       <SignOut />
     </>
   ) : (

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 ::selection {
-  background-color: #47a3f3;
+  background-color: #5539cc;
   color: #fefefe;
 }
 
@@ -120,6 +120,7 @@ input[type='email'] {
 
 table {
   display: block;
+  max-width: -moz-fit-content;
   max-width: fit-content;
   overflow-x: auto;
   white-space: nowrap;

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Suspense, cache } from 'react';
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
-import { getViewsCount } from 'app/db/queries';
+// import { getViewsCount } from 'app/db/queries';
 import { getBlogPosts } from 'app/db/blog';
 import ViewCounter from '../view-counter';
 import { increment } from 'app/db/actions';
@@ -123,9 +123,9 @@ export default function Blog({ params }) {
             {formatDate(post.metadata.publishedAt)}
           </p>
         </Suspense>
-        <Suspense fallback={<p className="h-5" />}>
+        {/* <Suspense fallback={<p className="h-5" />}>
           <Views slug={post.slug} />
-        </Suspense>
+        </Suspense> */}
       </div>
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <CustomMDX source={post.content} />
@@ -136,8 +136,8 @@ export default function Blog({ params }) {
 
 let incrementViews = cache(increment);
 
-async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
-  incrementViews(slug);
-  return <ViewCounter allViews={views} slug={slug} />;
-}
+// async function Views({ slug }: { slug: string }) {
+//   let views = await getViewsCount();
+//   incrementViews(slug);
+//   return <ViewCounter allViews={views} slug={slug} />;
+// }
