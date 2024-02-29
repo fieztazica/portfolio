@@ -51,7 +51,7 @@ function Badge(props) {
         <a
             {...props}
             target="_blank"
-            className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 no-underline"
+            className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 no-underline hover:bg-neutral-700 hover:border-neutral-600"
         />
     )
 }
@@ -98,7 +98,8 @@ export default function Page() {
                         height={256}
                         width={256}
                         alt="fiezt avatar"
-                        className="border border-neutral-200 dark:border-neutral-700 min-w-32 min-h-32 rounded-full"
+                        aria-label='fiezt avatar'
+                        className="border-2 border-neutral-200 dark:border-neutral-700 min-w-32 min-h-32 rounded-full"
                         priority
                     />
                 </div>
@@ -129,16 +130,19 @@ export default function Page() {
             </div>
             <div
                 className={
-                    'bg-no-repeat bg-cover bg-center my-2 px-16 py-24 overflow-hidden rounded-md w-full flex justify-center'
+                    'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 overflow-hidden rounded-md w-full flex justify-center'
                 }
                 style={{
                     backgroundImage: `url('/bg.gif')`,
                 }}
             >
-                <img
-                    src="bumping.gif"
+                <Image
+                    src="/bumping.gif"
                     alt="Fiezt bumping gif"
-                    className="max-w-64"
+                    width={1280}
+                    height={720}
+                    sizes='33vw'
+                    className="max-w-64 mx-8 my-0 md:mx-16 md:my-8"
                 />
             </div>
             <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
