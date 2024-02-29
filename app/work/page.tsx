@@ -52,7 +52,7 @@ export default function Page() {
                     Frontend, Aug 2023 — Nov 2023
                 </p>
                 <p>
-                    We did this project for an IT Contest{' '}
+                    We (5 members) did this project for an IT Contest{' '}
                     <a href="https://www.linkedin.com/posts/cj-olivenetworks-vina_itcontest-codeabryourabrfuture-cjvietnamhq-activity-7117777134567256067-CB5n">
                         Code Your Future
                     </a>{' '}
