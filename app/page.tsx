@@ -130,7 +130,7 @@ export default function Page() {
             </div>
             <div
                 className={
-                    'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 overflow-hidden rounded-md w-full flex justify-center'
+                    'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 rounded-md w-full flex justify-center'
                 }
                 style={{
                     backgroundImage: `url('/bg.gif')`,
@@ -142,7 +142,7 @@ export default function Page() {
                     width={1280}
                     height={720}
                     sizes='33vw'
-                    className="max-w-64 mx-8 my-0 md:mx-16 md:my-8"
+                    className="max-w-64 w-64 h-full"
                 />
             </div>
             <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
