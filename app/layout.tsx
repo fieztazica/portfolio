@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'Developer, gamer, and cooker.',
     openGraph: {
         title: 'Dat Hoang',
-        description: 'Developer, writer, and creator.',
+        description: 'Developer, gamer, and cooker.',
         url: 'https://tiendat.id.vn',
         siteName: 'Dat Hoang',
         locale: 'en_US',
