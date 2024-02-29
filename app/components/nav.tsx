@@ -9,7 +9,7 @@ const navItems = {
         name: 'work',
         target: '',
     },
-    'https://j2c.cc/fiezt-cv': {
+    '/resume': {
         name: 'resume',
         target: '_blank',
     },
