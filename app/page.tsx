@@ -118,23 +118,25 @@ export default function Page() {
                     <li>Apache, Nginx, Caddy</li>
                 </ul>
             </div>
-            <div
-                className={
-                    'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 rounded-md w-full flex justify-center'
-                }
-                style={{
-                    backgroundImage: `url('/bg.gif')`,
-                }}
-            >
-                <Image
-                    src="/bumping.gif"
-                    alt="Fiezt bumping gif"
-                    width={1280}
-                    height={720}
-                    sizes="33vw"
-                    className="max-w-64 w-64 h-full"
-                />
-            </div>
+            <a href='https://fiezt1492.github.io'>
+                <div
+                    className={
+                        'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 rounded-md w-full flex justify-center'
+                    }
+                    style={{
+                        backgroundImage: `url('/bg.gif')`,
+                    }}
+                >
+                    <Image
+                        src="/bumping.gif"
+                        alt="Fiezt bumping gif"
+                        width={1280}
+                        height={720}
+                        sizes="33vw"
+                        className="max-w-64 w-64 h-full"
+                    />
+                </div>
+            </a>
             <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
                 {connectLinks.map((c) => (
                     <li key={`connect:${c.title}`}>
