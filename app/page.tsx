@@ -118,10 +118,10 @@ export default function Page() {
                     <li>Apache, Nginx, Caddy</li>
                 </ul>
             </div>
-            <a href='https://fiezt1492.github.io'>
+            <a href="https://fiezt1492.github.io">
                 <div
                     className={
-                        'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 rounded-md w-full flex justify-center'
+                        'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 rounded-md w-full flex justify-center border-2 border-neutral-200 dark:border-neutral-700'
                     }
                     style={{
                         backgroundImage: `url('/bg.gif')`,
