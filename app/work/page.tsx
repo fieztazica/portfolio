@@ -14,7 +14,8 @@ export default function Page() {
             </h1>
             <div className="prose prose-neutral dark:prose-invert">
                 <p>
-                Undergraduate students (GPA 3.44). Graduate in 2024, seeking for internship or fresher position.
+                    Undergraduate students (GPA 3.44). Graduate in 2024, seeking
+                    for internship or fresher position.
                 </p>
                 <Hr />
                 <h2 className="font-medium text-xl mb-1 tracking-tighter">
@@ -40,9 +41,9 @@ export default function Page() {
                     .
                 </p>
                 <p>
-                    I currently not active on their Facebook page, group anymore
+                    {`I'm currently not active on their Facebook page, group anymore
                     due to my huge amount of school projects in late 2023 but I
-                    still moderate the Discord server as Administrator.
+                    still moderate the Discord server as Administrator.`}
                 </p>
                 <Hr />
                 <h2 className="font-medium text-xl mb-1 tracking-tighter">
