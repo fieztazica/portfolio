@@ -7,7 +7,6 @@ import { getFieztDiscordStatus } from './db/queries'
 
 async function DiscordCard() {
     let user = await getFieztDiscordStatus()
-    if (!user) return null
     const statusColor =
         user.status === 'dnd'
             ? '#ED4245'

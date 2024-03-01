@@ -6,6 +6,7 @@ import {
     unstable_cache as cache,
     unstable_noStore as noStore,
 } from 'next/cache'
+import avatarImg from 'app/avatar.jpg'
 
 let googleAuth = new auth.GoogleAuth({
     credentials: {
@@ -104,7 +105,11 @@ export const getFieztDiscordStatus = cache(
     async () => {
         let res = await fetch(`${process.env.DISCORD_WIDGET_URL}`)
         let response = await res.json()
-        let user = (response.members as DiscordUser[]).shift()
+        let user = (response.members as DiscordUser[]).shift() || {
+            username: "Fiezt",
+            status: "offline",
+            avatar_url: avatarImg
+        }
         return user
     },
     ['fiezt-discord-status'],
