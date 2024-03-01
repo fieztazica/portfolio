@@ -5,56 +5,38 @@ import Badge from 'app/components/badge'
 import { Suspense } from 'react'
 import { getFieztDiscordStatus } from './db/queries'
 
-async function DiscordCard() {
-    let user = await getFieztDiscordStatus()
-    const statusColor =
-        user.status === 'dnd'
-            ? '#ED4245'
-            : user.status === 'idle'
-            ? '#FAA61A'
-            : user.status === 'online'
-            ? '#3BA55C'
-            : '#747F8D'
+async function Card({ img, link, title, des, badgeSvg }) {
     return (
         <div className="group flex w-full">
             <a
-                href={'/discord'}
+                href={link}
                 target="_blank"
                 className="border-2 border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4 w-full transition-all"
             >
                 <div className="flex items-center space-x-3">
                     <div className="relative h-16">
                         <Image
-                            alt={`${user.username}_discord`}
-                            src={user.avatar_url}
+                            alt={`${title}_card_title`}
+                            src={img}
                             height={64}
                             width={64}
                             sizes="33vw"
                             className="border border-neutral-200 dark:border-neutral-700 rounded-full h-16 w-16"
                             priority
                         />
-                        <div className="border border-neutral-200 dark:border-neutral-700 rounded-full bg-white inline-flex relative h-6 w-6 items-center -top-6 -right-10">
-                            <svg
-                                height="22"
-                                width="22"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <circle
-                                    r="10"
-                                    cx="11"
-                                    cy="11"
-                                    fill={statusColor}
-                                />
-                            </svg>
+                        <div className="border border-neutral-200 dark:border-neutral-700 rounded-full bg-white inline-flex relative p-1 h-6 w-6 items-center -top-6 -right-10">
+                            {badgeSvg ? badgeSvg : null}
                         </div>
                     </div>
                     <div className="flex flex-col">
                         <p className="font-medium text-neutral-900 dark:text-neutral-100">
-                            {user.username}
+                            {title}
                         </p>
-                        <p className="text-neutral-600 dark:text-neutral-400">
-                            {user.status}
-                        </p>
+                        {des && (
+                            <p className="text-neutral-600 dark:text-neutral-400">
+                                {des}
+                            </p>
+                        )}
                     </div>
                 </div>
                 <div className="text-neutral-700 dark:text-neutral-300 transform transition-transform duration-300 group-hover:-rotate-12">
@@ -62,6 +44,31 @@ async function DiscordCard() {
                 </div>
             </a>
         </div>
+    )
+}
+
+async function DiscordCard() {
+    let user = await getFieztDiscordStatus()
+    const statusColor =
+        user.status === 'dnd'
+            ? 'bg-[#ED4245]'
+            : user.status === 'idle'
+            ? 'bg-[#FAA61A]'
+            : user.status === 'online'
+            ? 'bg-[#3BA55C]'
+            : 'bg-[#747F8D]'
+    return (
+        <Card
+            link={'/discord'}
+            img={user.avatar_url}
+            title={user.username}
+            des={user.status}
+            badgeSvg={
+                <div
+                    className={`w-full h-full aspect-square rounded-full ${statusColor}`}
+                ></div>
+            }
+        />
     )
 }
 
@@ -201,7 +208,25 @@ export default function Page() {
                     />
                 </div>
             </a>
-            <DiscordCard />
+            <div className="my-8 flex flex-col sm:flex-row space-x-0 sm:space-x-4 space-y-4 sm:space-y-0 w-full">
+                <DiscordCard />
+                <Card
+                    img={avatarImg}
+                    link={'https://www.youtube.com/@Fiezt'}
+                    title={'@Fiezt'}
+                    des={'video, music, gaming, ...'}
+                    badgeSvg={
+                        <svg
+                            width="15"
+                            height="11"
+                            role="img"
+                            aria-label="YouTube logo"
+                        >
+                            <use href="/sprite.svg#youtube" />
+                        </svg>
+                    }
+                />
+            </div>
             <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
                 {connectLinks.map((c) => (
                     <li key={`connect:${c.title}`}>
