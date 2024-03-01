@@ -9,6 +9,16 @@ const nextConfig = {
     ppr: true,
     useLightningcss: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.discordapp.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   async redirects() {
     if (!process.env.POSTGRES_URL) {
       return [];

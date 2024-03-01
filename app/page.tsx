@@ -2,6 +2,69 @@ import Image from 'next/image'
 import avatarImg from 'app/avatar.jpg'
 import Link from 'next/link'
 import Badge from 'app/components/badge'
+import { Suspense } from 'react'
+import { getFieztDiscordStatus } from './db/queries'
+
+async function DiscordCard() {
+    let user = await getFieztDiscordStatus()
+    if (!user) return null
+    const statusColor =
+        user.status === 'dnd'
+            ? '#ED4245'
+            : user.status === 'idle'
+            ? '#FAA61A'
+            : user.status === 'online'
+            ? '#3BA55C'
+            : '#747F8D'
+    return (
+        <div className="group flex w-full">
+            <a
+                href={'/discord'}
+                target="_blank"
+                className="border-2 border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4 w-full transition-all"
+            >
+                <div className="flex items-center space-x-3">
+                    <div className="relative h-16">
+                        <Image
+                            alt={`${user.username}_discord`}
+                            src={user.avatar_url}
+                            height={64}
+                            width={64}
+                            sizes="33vw"
+                            className="border border-neutral-200 dark:border-neutral-700 rounded-full h-16 w-16"
+                            priority
+                        />
+                        <div className="border border-neutral-200 dark:border-neutral-700 rounded-full bg-white inline-flex relative h-6 w-6 items-center -top-6 -right-10">
+                            <svg
+                                height="22"
+                                width="22"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <circle
+                                    r="10"
+                                    cx="11"
+                                    cy="11"
+                                    fill={statusColor}
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div className="flex flex-col">
+                        <p className="font-medium text-neutral-900 dark:text-neutral-100">
+                            {user.username}
+                        </p>
+                        <p className="text-neutral-600 dark:text-neutral-400">
+                            {user.status}
+                        </p>
+                    </div>
+                </div>
+                <div className="text-neutral-700 dark:text-neutral-300 transform transition-transform duration-300 group-hover:-rotate-12">
+                    <ArrowIcon />
+                </div>
+            </a>
+        </div>
+    )
+}
 
 type ConnectLinkType = {
     title: string
@@ -35,12 +98,14 @@ function ArrowIcon() {
 function ConnectLink({ title, url }: ConnectLinkType) {
     return (
         <a
-            className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+            className="group flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
             rel="noopener noreferrer"
             target="_blank"
             href={url}
         >
-            <ArrowIcon />
+            <div className="text-neutral-700 dark:text-neutral-300 transform transition-transform duration-300 group-hover:-rotate-12">
+                <ArrowIcon />
+            </div>
             <p className="h-7 ml-2">{title}</p>
         </a>
     )
@@ -137,6 +202,7 @@ export default function Page() {
                     />
                 </div>
             </a>
+            <DiscordCard />
             <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
                 {connectLinks.map((c) => (
                     <li key={`connect:${c.title}`}>
