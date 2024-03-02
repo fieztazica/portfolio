@@ -110,11 +110,19 @@ export default function Page() {
                 </div>
                 <p>
                     We (5 members) finished this project for an IT Contest{' '}
-                    <a href="https://www.linkedin.com/posts/cj-olivenetworks-vina_itcontest-codeabryourabrfuture-cjvietnamhq-activity-7117777134567256067-CB5n">
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.linkedin.com/posts/cj-olivenetworks-vina_itcontest-codeabryourabrfuture-cjvietnamhq-activity-7117777134567256067-CB5n"
+                    >
                         Code Your Future
                     </a>{' '}
                     organized by{' '}
-                    <a href="https://www.linkedin.com/company/cj-olivenetworks-vina">
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.linkedin.com/company/cj-olivenetworks-vina"
+                    >
                         CJ OliveNetworks Vina
                     </a>{' '}
                     in just 3 months and rewarded the 'real' third prize.{' '}
@@ -138,7 +146,11 @@ export default function Page() {
                 </div>
                 <p>
                     An Owlvernyte team's school project (7 members).{' '}
-                    <a href="https://cotuong-nyte.vercel.app">
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://cotuong-nyte.vercel.app"
+                    >
                         Vietnamese chess
                     </a>{' '}
                     has both stunning look and smooth experience.
