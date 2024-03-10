@@ -37,4 +37,4 @@ yarn-error.log*
 next-env.d.ts
 
 # yarn 4 migration
-/.yarn/*.gz
+/.yarn
