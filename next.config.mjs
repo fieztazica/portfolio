@@ -27,9 +27,11 @@ const nextConfig = {
         }
 
         let redirects = await sql`
-      SELECT source, destination, permanent
-      FROM redirects;
-    `
+        SELECT source, destination, permanent
+        FROM redirects;
+        `
+
+        console.log(`${redirects.count} redirects found.`)
 
         return redirects.map(({ source, destination, permanent }) => ({
             source,

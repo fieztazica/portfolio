@@ -81,6 +81,7 @@ const connectLinks: ConnectLinkType[] = [
     { title: 'github', url: '/github' },
     { title: 'facebook', url: '/facebook' },
     { title: 'instagram', url: '/instagram' },
+    { title: 'twitter', url: '/twitter' },
     { title: 'linkedin', url: '/linkedin' },
 ]
 
@@ -212,7 +213,7 @@ export default function Page() {
                 <DiscordCard />
                 <Card
                     img={avatarImg}
-                    link={'https://www.youtube.com/@Fiezt'}
+                    link={'/youtube'}
                     title={'@Fiezt'}
                     des={'video, music, gaming, ...'}
                     badgeSvg={
