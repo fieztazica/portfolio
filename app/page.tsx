@@ -1,8 +1,7 @@
-import Image from 'next/image'
 import avatarImg from 'app/avatar.jpg'
-import Link from 'next/link'
 import Badge from 'app/components/badge'
-import { Suspense } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { getFieztDiscordStatus } from './db/queries'
 
 async function Card({ img, link, title, des, badgeSvg }) {
