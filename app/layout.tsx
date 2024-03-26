@@ -6,6 +6,7 @@ import { Navbar } from './components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from './blog/[slug]/sandpack'
+import { cx } from 'lib/utils'
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://tiendat.id.vn'),
@@ -39,8 +40,6 @@ export const metadata: Metadata = {
     },
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
-
 export default function RootLayout({
     children,
 }: {
@@ -50,7 +49,7 @@ export default function RootLayout({
         <html
             lang="en"
             className={cx(
-                'text-black bg-white dark:text-white dark:bg-zinc-800',
+                'text-mine-shaft-950 bg-white dark:text-mine-shaft-50 dark:bg-zinc-950',
                 GeistSans.variable,
                 GeistMono.variable
             )}

@@ -10,7 +10,7 @@ async function Card({ img, link, title, des, badgeSvg }) {
             <a
                 href={link}
                 target="_blank"
-                className="border-2 border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4 w-full transition-all"
+                className="border-2 border-mine-shaft-200 dark:border-mine-shaft-700 bg-mine-shaft-50 dark:bg-mine-shaft-950 rounded flex items-center justify-between px-3 py-4 w-full transition-all"
             >
                 <div className="flex items-center space-x-3">
                     <div className="relative h-16">
@@ -20,25 +20,25 @@ async function Card({ img, link, title, des, badgeSvg }) {
                             height={64}
                             width={64}
                             sizes="33vw"
-                            className="border border-neutral-200 dark:border-neutral-700 rounded-full h-16 w-16"
+                            className="border border-mine-shaft-200 dark:border-mine-shaft-700 rounded-full h-16 w-16"
                             priority
                         />
-                        <div className="border border-neutral-200 dark:border-neutral-700 rounded-full bg-white inline-flex relative p-1 h-6 w-6 items-center -top-6 -right-10">
+                        <div className="border border-mine-shaft-200 dark:border-mine-shaft-700 rounded-full bg-white inline-flex relative p-1 h-6 w-6 items-center -top-6 -right-10">
                             {badgeSvg ? badgeSvg : null}
                         </div>
                     </div>
                     <div className="flex flex-col">
-                        <p className="font-medium text-neutral-900 dark:text-neutral-100">
+                        <p className="font-medium text-mine-shaft-900 dark:text-mine-shaft-100">
                             {title}
                         </p>
                         {des && (
-                            <p className="text-neutral-600 dark:text-neutral-400">
+                            <p className="text-mine-shaft-600 dark:text-mine-shaft-400">
                                 {des}
                             </p>
                         )}
                     </div>
                 </div>
-                <div className="text-neutral-700 dark:text-neutral-300 transform transition-transform duration-300 group-hover:-rotate-12">
+                <div className="text-mine-shaft-700 dark:text-mine-shaft-300 transform transition-transform duration-300 group-hover:-rotate-12">
                     <ArrowIcon />
                 </div>
             </a>
@@ -104,12 +104,12 @@ function ArrowIcon() {
 function ConnectLink({ title, url }: ConnectLinkType) {
     return (
         <a
-            className="group flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+            className="group flex items-center hover:text-mine-shaft-800 dark:hover:text-mine-shaft-100 transition-all"
             rel="noopener noreferrer"
             target="_blank"
             href={url}
         >
-            <div className="text-neutral-700 dark:text-neutral-300 transform transition-transform duration-300 group-hover:-rotate-12">
+            <div className="text-mine-shaft-700 dark:text-mine-shaft-300 transform transition-transform duration-300 group-hover:-rotate-12">
                 <ArrowIcon />
             </div>
             <p className="h-7 ml-2">{title}</p>
@@ -125,7 +125,7 @@ export default function Page() {
                     <h1 className="font-medium text-2xl mb-8 tracking-tighter">
                         hi, I'm Dat 👀
                     </h1>
-                    <p className="prose prose-neutral dark:prose-invert">
+                    <p className="prose prose-mine-shaft dark:prose-invert">
                         {`I'm a student at `}
                         <Link target="_blank" href="https://www.hutech.edu.vn">
                             HUTECH
@@ -160,13 +160,13 @@ export default function Page() {
                         width={256}
                         alt="fiezt avatar"
                         aria-label="fiezt avatar"
-                        className="border-2 border-neutral-200 dark:border-neutral-700 min-w-32 min-h-32 rounded-full"
+                        className="border-2 border-mine-shaft-200 dark:border-mine-shaft-700 min-w-32 min-h-32 rounded-full"
                         priority
                     />
                 </div>
             </div>
 
-            <div className="prose prose-neutral dark:prose-invert">
+            <div className="prose prose-mine-shaft dark:prose-invert">
                 <p>
                     {`These are what I familiar to (including what I've learned from school and self-learn):`}
                 </p>
@@ -192,7 +192,7 @@ export default function Page() {
             <a href="https://fieztazica.github.io">
                 <div
                     className={
-                        'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 rounded-md w-full flex justify-center border-2 border-neutral-200 dark:border-neutral-700'
+                        'bg-no-repeat bg-cover bg-center my-4 px-16 py-24 rounded-md w-full flex justify-center border-2 border-mine-shaft-200 dark:border-mine-shaft-700'
                     }
                     style={{
                         backgroundImage: `url('/bg.gif')`,
@@ -227,7 +227,7 @@ export default function Page() {
                     }
                 />
             </div>
-            <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
+            <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-mine-shaft-600 dark:text-mine-shaft-300">
                 {connectLinks.map((c) => (
                     <li key={`connect:${c.title}`}>
                         <ConnectLink url={c.url} title={c.title} />

@@ -92,26 +92,26 @@ export const Tailwind = `<!DOCTYPE html>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-100 font-sans">
-    <header class="text-center text-3xl font-bold py-8 bg-neutral-800 text-white">
+    <header class="text-center text-3xl font-bold py-8 bg-mine-shaft-800 text-white">
       <h1>Minimal Blog</h1>
     </header>
     <main class="w-full px-4">
       <article class="my-4 p-4 bg-white shadow-md">
-        <h2 class="text-neutral-800 mb-4 font-bold">The Art of CSS</h2>
-        <p class="text-neutral-600 leading-5">
+        <h2 class="text-mine-shaft-800 mb-4 font-bold">The Art of CSS</h2>
+        <p class="text-mine-shaft-600 leading-5">
           Discovering the latest features in CSS can transform the way we design
           and interact with web content.
         </p>
       </article>
       <article class="my-4 p-4 bg-white shadow-md">
-        <h2 class="text-neutral-800 mb-4 font-bold">Exploring Web Design</h2>
-        <p class="text-neutral-600 leading-5">
+        <h2 class="text-mine-shaft-800 mb-4 font-bold">Exploring Web Design</h2>
+        <p class="text-mine-shaft-600 leading-5">
           A journey through the evolution of web design, from static pages to
           dynamic, responsive experiences.
         </p>
       </article>
     </main>
-    <footer class="text-center py-8 bg-neutral-800 text-white">
+    <footer class="text-center py-8 bg-mine-shaft-800 text-white">
       <p>&copy; 2023 Minimal Blog</p>
     </footer>
   </body>

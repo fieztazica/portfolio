@@ -9,7 +9,6 @@ export const sql = postgres(process.env.POSTGRES_URL, {
 const nextConfig = {
     experimental: {
         ppr: true,
-        useLightningcss: true,
     },
     images: {
         remotePatterns: [

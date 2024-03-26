@@ -12,7 +12,7 @@ export default function UsesPage() {
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
         here's my setup
       </h1>
-      <div className="prose prose-neutral dark:prose-invert">
+      <div className="prose prose-mine-shaft dark:prose-invert">
         <h3 id="computer-office">Computer / Office</h3>
         <ul>
           <li>Potato Windows 10 15.6&quot; Lenovo Ideapad S145-15IKB i3-8130U, MX110 2GB VRAM (12GB RAM total)</li>

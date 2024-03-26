@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 function GitHubLink({ link }) {
     return (
         <a
-            className="group flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+            className="group flex items-center hover:text-mine-shaft-800 dark:hover:text-mine-shaft-100 transition-all"
             rel="noopener noreferrer"
             target="_blank"
             href={link}
         >
-            <div className="text-neutral-700 dark:text-neutral-300 transform transition-transform duration-300 group-hover:-rotate-12 rounded-full bg-neutral-700 dark:bg-neutral-300 p-1 h-fit">
+            <div className="text-mine-shaft-700 dark:text-mine-shaft-300 transform transition-transform duration-300 group-hover:-rotate-12 rounded-full bg-mine-shaft-700 dark:bg-mine-shaft-300 p-1 h-fit">
                 <img
                     alt="GitHub logo"
                     src="/github-logo.svg"
@@ -32,7 +32,7 @@ export default function Page() {
             <h1 className="font-medium text-2xl mb-8 tracking-tighter">
                 my work
             </h1>
-            <div className="prose prose-neutral dark:prose-invert">
+            <div className="prose prose-mine-shaft dark:prose-invert">
                 <p>
                     Undergraduate students (GPA 3.44). Graduate in 2024, seeking
                     for internship or fresher position.
@@ -43,7 +43,7 @@ export default function Page() {
                         <h2 className="font-medium text-xl mb-1 tracking-tighter">
                             Code MeLy
                         </h2>
-                        <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                        <p className="text-mine-shaft-600 dark:text-mine-shaft-400 text-sm">
                             Technical Member, Aug 2022 — Dec 2023
                         </p>
                     </div>
@@ -100,7 +100,7 @@ export default function Page() {
                         <h2 className="font-medium text-xl mb-1 tracking-tighter">
                             ProfioApp
                         </h2>
-                        <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                        <p className="text-mine-shaft-600 dark:text-mine-shaft-400 text-sm">
                             Frontend, Aug 2023 — Nov 2023
                         </p>
                     </div>
@@ -136,7 +136,7 @@ export default function Page() {
                         <h2 className="font-medium text-xl mb-1 tracking-tighter">
                             Vietnamese Chess
                         </h2>
-                        <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                        <p className="text-mine-shaft-600 dark:text-mine-shaft-400 text-sm">
                             Frontend, Sep 2023 — Now
                         </p>
                     </div>
@@ -165,5 +165,5 @@ export default function Page() {
 }
 
 function Hr() {
-    return <hr className="my-6 border-neutral-100 dark:border-neutral-700" />
+    return <hr className="my-6 border-mine-shaft-100 dark:border-mine-shaft-700" />
 }
