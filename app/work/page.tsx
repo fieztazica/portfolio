@@ -14,7 +14,7 @@ function GitHubLink({ link }) {
             target="_blank"
             href={link}
         >
-            <div className="text-mine-shaft-700 dark:text-mine-shaft-300 transform transition-transform duration-300 group-hover:-rotate-12 rounded-full bg-mine-shaft-700 dark:bg-mine-shaft-300 p-1 h-fit">
+            <div className="text-mine-shaft-700 dark:text-mine-shaft-50 transform transition-transform duration-300 group-hover:rotate-12 rounded-full bg-mine-shaft-700 dark:bg-mine-shaft-100 p-1 h-fit">
                 <img
                     alt="GitHub logo"
                     src="/github-logo.svg"
@@ -28,7 +28,7 @@ function GitHubLink({ link }) {
 
 export default function Page() {
     return (
-        <section>
+        <section className='text-justify'>
             <h1 className="font-medium text-2xl mb-8 tracking-tighter">
                 my work
             </h1>

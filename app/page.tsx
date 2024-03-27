@@ -1,7 +1,8 @@
-import avatarImg from 'app/avatar.jpg'
 import Badge from 'app/components/badge'
+import logoImg from 'app/logo.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
+import Avatar from './components/avatar'
 import { getFieztDiscordStatus } from './db/queries'
 
 async function Card({ img, link, title, des, badgeSvg }) {
@@ -119,7 +120,7 @@ function ConnectLink({ title, url }: ConnectLinkType) {
 
 export default function Page() {
     return (
-        <section>
+        <section className="text-justify">
             <div className="flex md:flex-row flex-col space-x-4 space-y-4">
                 <div className="flex-1">
                     <h1 className="font-medium text-2xl mb-8 tracking-tighter">
@@ -153,17 +154,7 @@ export default function Page() {
                         .
                     </p>
                 </div>
-                <div className="flex justify-center items-center">
-                    <Image
-                        src={avatarImg}
-                        height={256}
-                        width={256}
-                        alt="fiezt avatar"
-                        aria-label="fiezt avatar"
-                        className="border-2 border-mine-shaft-200 dark:border-mine-shaft-700 min-w-32 min-h-32 rounded-full"
-                        priority
-                    />
-                </div>
+                <Avatar />
             </div>
 
             <div className="prose prose-mine-shaft dark:prose-invert">
@@ -211,7 +202,7 @@ export default function Page() {
             <div className="my-8 flex flex-col sm:flex-row space-x-0 sm:space-x-4 space-y-4 sm:space-y-0 w-full">
                 <DiscordCard />
                 <Card
-                    img={avatarImg}
+                    img={logoImg}
                     link={'/youtube'}
                     title={'@Fiezt'}
                     des={'video, music, gaming, ...'}
