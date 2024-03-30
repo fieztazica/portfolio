@@ -28,14 +28,21 @@ function GitHubLink({ link }) {
 
 export default function Page() {
     return (
-        <section className='text-justify'>
+        <section className="text-justify">
             <h1 className="font-medium text-2xl mb-8 tracking-tighter">
                 my work
             </h1>
             <div className="prose prose-mine-shaft dark:prose-invert">
                 <p>
-                    Undergraduate students (GPA 3.44). Graduate in 2024, seeking
-                    for internship or fresher position.
+                    Internship Trainee at{' '}
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.nashtechglobal.com"
+                    >
+                        NashTech Vietnam
+                    </a>
+                    .
                 </p>
                 <Hr />
                 <div className="flex justify-between items-center">
@@ -165,5 +172,7 @@ export default function Page() {
 }
 
 function Hr() {
-    return <hr className="my-6 border-mine-shaft-100 dark:border-mine-shaft-700" />
+    return (
+        <hr className="my-6 border-mine-shaft-100 dark:border-mine-shaft-700" />
+    )
 }

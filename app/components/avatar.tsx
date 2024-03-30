@@ -9,7 +9,7 @@ export default function Avatar() {
     const [isLogo, setIsLogo] = useState(false)
     return (
         <div
-            className="flex justify-center items-center group relative w-fit aspect-square p-0 m-0 cursor-pointer"
+            className="flex justify-center items-center group relative w-fit aspect-square p-0 m-0 cursor-pointer mx-auto"
             onClick={() => setIsLogo((v) => !v)}
         >
             <Image

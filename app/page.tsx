@@ -4,6 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Avatar from './components/avatar'
 import { getFieztDiscordStatus } from './db/queries'
+import hutech_od1 from 'public/images/2024/Mar29/IMG_20240329_142602.jpg'
+import hutech_od2 from 'public/images/2024/Mar29/IMG_20240329_163947.jpg'
+import codemely from 'public/images/2023/code_mely_offline_1st.jpg'
+import cyf from 'public/images/2023/code_your_future.jpg'
+import hutech_cyf from 'public/images/2023/hutech_cyf.jpg'
+import near_apac from 'public/images/2023/near_apac.jpg'
 
 async function Card({ img, link, title, des, badgeSvg }) {
     return (
@@ -124,7 +130,7 @@ export default function Page() {
             <div className="flex md:flex-row flex-col space-x-4 space-y-4">
                 <div className="flex-1">
                     <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-                        hi, I'm Dat 👀
+                        hi, I'm <span>Dat</span> 👀
                     </h1>
                     <p className="prose prose-mine-shaft dark:prose-invert">
                         {`I'm a student at `}
@@ -154,31 +160,102 @@ export default function Page() {
                         .
                     </p>
                 </div>
-                <Avatar />
+                <div className="flex justify-center items-center">
+                    <Avatar />
+                </div>
             </div>
-
+            <div className="my-8 columns-1 gap-2 sm:columns-2">
+                <div className="relative h-48 mb-2">
+                    <Image
+                        alt="Me with Owlvernyte participating in IT HUTECH OPEN DAY 2024"
+                        src={hutech_od1}
+                        fill
+                        sizes="(max-width: 768px) 213px, 33vw"
+                        priority
+                        className="rounded-lg object-cover"
+                    />
+                </div>
+                <div className="relative h-48 mb-2">
+                    <Image
+                        alt="Still me with Owlvernyte at IT HUTECH OPEN DAY 2024"
+                        src={hutech_od2}
+                        fill
+                        sizes="(max-width: 768px) 213px, 33vw"
+                        priority
+                        className="rounded-lg object-cover"
+                    />
+                </div>
+                <div className="relative h-48 mb-2">
+                    <Image
+                        alt="Me with team members of ProfioApp checked in at CJ OliveNetworks"
+                        src={cyf}
+                        fill
+                        sizes="(max-width: 768px) 213px, 33vw"
+                        priority
+                        className="rounded-lg object-cover"
+                    />
+                </div>
+                <div className="relative h-48 mb-2">
+                    <Image
+                        alt="Me with team members of ProfioApp at HUTECH"
+                        src={hutech_cyf}
+                        fill
+                        sizes="(max-width: 768px) 213px, 33vw"
+                        priority
+                        className="rounded-lg object-cover"
+                    />
+                </div>
+                <div className="relative h-48 mb-2">
+                    <Image
+                        alt="First offline meeting of Code Mely in HCM"
+                        src={codemely}
+                        fill
+                        sizes="(max-width: 768px) 213px, 33vw"
+                        priority
+                        className="rounded-lg object-cover"
+                    />
+                </div>
+                <div className="relative h-48 mb-2">
+                    <Image
+                        alt="Code Mely at Near APAC 2024"
+                        src={near_apac}
+                        fill
+                        sizes="(min-width: 768px) 213px, 33vw"
+                        priority
+                        className="rounded-lg object-cover"
+                    />
+                </div>
+            </div>
             <div className="prose prose-mine-shaft dark:prose-invert">
                 <p>
-                    {`These are what I familiar to (including what I've learned from school and self-learn):`}
+                    {`These are what I familiar with (including what I've learned from school and self-learn):`}
                 </p>
-                <h4>Web Development</h4>
-                <ul>
-                    <li>JavaScript, TypeScript</li>
-                    <li>React, Next.js</li>
-                    <li>Express.js</li>
-                    <li>ASP.NET Core</li>
-                    <li>Java Spring Boot</li>
-                </ul>
-                <h4>Mobile Development</h4>
-                <ul>
-                    <li>Flutter</li>
-                    <li>Java Android</li>
-                </ul>
-                <h4>DevOps</h4>
-                <ul>
-                    <li>Docker</li>
-                    <li>Apache, Nginx, Caddy</li>
-                </ul>
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                    <div className="row-span-2">
+                        <h4>Web Development</h4>
+                        <ul>
+                            <li>JavaScript, TypeScript</li>
+                            <li>React, Next.js</li>
+                            <li>Express.js</li>
+                            <li>ASP.NET Core</li>
+                            <li>Java Spring Boot</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Mobile Development</h4>
+                        <ul>
+                            <li>Flutter</li>
+                            <li>Java Android</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>DevOps</h4>
+                        <ul>
+                            <li>Docker</li>
+                            <li>Apache, Nginx, Caddy</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <a href="https://fieztazica.github.io">
                 <div
